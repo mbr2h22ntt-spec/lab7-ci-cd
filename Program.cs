@@ -135,7 +135,10 @@ namespace MyProject
                    ones[x % 10];
         }
     }
+}
 
+namespace MyProject.Tests
+{
     [TestFixture]
     public class ProgramTests
     {
@@ -145,7 +148,7 @@ namespace MyProject
         { 
             int[] arr = {5, 2, 8, 1, 9};
             Program.SortArray(arr);
-            Assert.That(arr, Is.EqualTo(new int[] {1, 2, 5, 8, 9}));
+            Assert.AreEqual(new int[] {1, 2, 5, 8, 9}, arr);
         }
 
         [Test] 
@@ -153,7 +156,7 @@ namespace MyProject
         { 
             int[] arr = {1, 2, 3, 4, 5};
             Program.SortArray(arr);
-            Assert.That(arr, Is.EqualTo(new int[] {1, 2, 3, 4, 5}));
+            Assert.AreEqual(new int[] {1, 2, 3, 4, 5}, arr);
         }
 
         [Test] 
@@ -161,7 +164,7 @@ namespace MyProject
         { 
             int[] arr = {5, 4, 3, 2, 1};
             Program.SortArray(arr);
-            Assert.That(arr, Is.EqualTo(new int[] {1, 2, 3, 4, 5}));
+            Assert.AreEqual(new int[] {1, 2, 3, 4, 5}, arr);
         }
 
         [Test] 
@@ -169,7 +172,7 @@ namespace MyProject
         { 
             int[] arr = {3, 1, 2, 1, 3};
             Program.SortArray(arr);
-            Assert.That(arr, Is.EqualTo(new int[] {1, 1, 2, 3, 3}));
+            Assert.AreEqual(new int[] {1, 1, 2, 3, 3}, arr);
         }
 
         [Test]
@@ -177,7 +180,7 @@ namespace MyProject
         {
             int[] arr = {42};
             Program.SortArray(arr);
-            Assert.That(arr, Is.EqualTo(new int[] {42}));
+            Assert.AreEqual(new int[] {42}, arr);
         }
 
         [Test]
@@ -185,164 +188,188 @@ namespace MyProject
         {
             int[] arr = { };
             Program.SortArray(arr);
-            Assert.That(arr, Is.EqualTo(new int[] { }));
+            Assert.AreEqual(new int[] { }, arr);
         }
 
         // 1.2. Палиндром
-        [Test] public void IsPalindrome_Valid() 
+        [Test] 
+        public void IsPalindrome_Valid() 
         { 
-            Assert.That(Program.IsPalindrome("казак"), Is.True);
+            Assert.IsTrue(Program.IsPalindrome("казак"));
         }
 
-        [Test] public void IsPalindrome_NotPalindrome() 
+        [Test] 
+        public void IsPalindrome_NotPalindrome() 
         { 
-            Assert.That(Program.IsPalindrome("привет"), Is.False);
+            Assert.IsFalse(Program.IsPalindrome("привет"));
         }
 
-        [Test] public void IsPalindrome_WithSpaces() 
+        [Test] 
+        public void IsPalindrome_WithSpaces() 
         { 
-            Assert.That(Program.IsPalindrome("а роза упала на лапу азора"), Is.True);
+            Assert.IsTrue(Program.IsPalindrome("а роза упала на лапу азора"));
         }
 
-        [Test] public void IsPalindrome_EmptyString() 
+        [Test] 
+        public void IsPalindrome_EmptyString() 
         { 
-            Assert.That(Program.IsPalindrome(""), Is.True);
+            Assert.IsTrue(Program.IsPalindrome(""));
         }
 
         // Факториал
-        [Test] public void Factorial_Positive() 
+        [Test] 
+        public void Factorial_Positive() 
         { 
-            Assert.That(Program.Factorial(5), Is.EqualTo(120));
+            Assert.AreEqual(120, Program.Factorial(5));
         }
 
-        [Test] public void Factorial_Zero() 
+        [Test] 
+        public void Factorial_Zero() 
         { 
-            Assert.That(Program.Factorial(0), Is.EqualTo(1));
+            Assert.AreEqual(1, Program.Factorial(0));
         }
 
-        [Test] public void Factorial_One() 
+        [Test] 
+        public void Factorial_One() 
         { 
-            Assert.That(Program.Factorial(1), Is.EqualTo(1));
+            Assert.AreEqual(1, Program.Factorial(1));
         }
 
-        [Test] public void Factorial_Negative() 
+        [Test] 
+        public void Factorial_Negative() 
         { 
-            Assert.That(Program.Factorial(-5), Is.EqualTo(-1));
+            Assert.AreEqual(-1, Program.Factorial(-5));
         }
 
         // Фибоначчи
-        [Test] public void Fibonacci_Positive() 
+        [Test] 
+        public void Fibonacci_Positive() 
         { 
-            Assert.That(Program.Fibonacci(5), Is.EqualTo(5));
+            Assert.AreEqual(5, Program.Fibonacci(5));
         }
 
-        [Test] public void Fibonacci_Zero() 
+        [Test] 
+        public void Fibonacci_Zero() 
         { 
-            Assert.That(Program.Fibonacci(0), Is.EqualTo(0));
+            Assert.AreEqual(0, Program.Fibonacci(0));
         }
 
-        [Test] public void Fibonacci_One() 
+        [Test] 
+        public void Fibonacci_One() 
         { 
-            Assert.That(Program.Fibonacci(1), Is.EqualTo(1));
+            Assert.AreEqual(1, Program.Fibonacci(1));
         }
 
-        [Test] public void Fibonacci_Large() 
+        [Test] 
+        public void Fibonacci_Large() 
         { 
-            Assert.That(Program.Fibonacci(10), Is.EqualTo(55));
+            Assert.AreEqual(55, Program.Fibonacci(10));
         }
 
         // Подстрока
-        [Test] public void FindSubstring_Exists() 
+        [Test] 
+        public void FindSubstring_Exists() 
         { 
-            Assert.That(Program.FindSubstring("Привет мир", "мир"), Is.EqualTo(7));
+            Assert.AreEqual(7, Program.FindSubstring("Привет мир", "мир"));
         }
 
-        [Test] public void FindSubstring_NotExists() 
+        [Test] 
+        public void FindSubstring_NotExists() 
         { 
-            Assert.That(Program.FindSubstring("Привет", "мир"), Is.EqualTo(-1));
+            Assert.AreEqual(-1, Program.FindSubstring("Привет", "мир"));
         }
 
-        [Test] public void FindSubstring_AtStart() 
+        [Test] 
+        public void FindSubstring_AtStart() 
         { 
-            Assert.That(Program.FindSubstring("Привет мир", "Привет"), Is.EqualTo(0));
+            Assert.AreEqual(0, Program.FindSubstring("Привет мир", "Привет"));
         }
 
-        [Test] public void FindSubstring_EmptySubstring() 
+        [Test] 
+        public void FindSubstring_EmptySubstring() 
         { 
-            Assert.That(Program.FindSubstring("Привет мир", ""), Is.EqualTo(0));
+            Assert.AreEqual(0, Program.FindSubstring("Привет мир", ""));
         }
 
         // Простые числа
         [Test]
         public void IsPrime_PrimeNumber() 
         { 
-            Assert.That(Program.IsPrime(17), Is.True);
+            Assert.IsTrue(Program.IsPrime(17));
         }
 
         [Test]
         public void IsPrime_NotPrimeNumber() 
         { 
-            Assert.That(Program.IsPrime(15), Is.False);
+            Assert.IsFalse(Program.IsPrime(15));
         }
 
         [Test]
         public void IsPrime_One() 
         { 
-            Assert.That(Program.IsPrime(1), Is.False);
+            Assert.IsFalse(Program.IsPrime(1));
         }
 
         [Test]
         public void IsPrime_NegativeNumber() 
         { 
-            Assert.That(Program.IsPrime(-5), Is.False);
+            Assert.IsFalse(Program.IsPrime(-5));
         }
 
         [Test]
         public void IsPrime_Zero() 
         { 
-            Assert.That(Program.IsPrime(0), Is.False);
+            Assert.IsFalse(Program.IsPrime(0));
         }
 
         // Обратное число
-        [Test] public void ReverseNumber_Positive() 
+        [Test] 
+        public void ReverseNumber_Positive() 
         { 
-            Assert.That(Program.ReverseNumber(123), Is.EqualTo(321));
+            Assert.AreEqual(321, Program.ReverseNumber(123));
         }
 
-        [Test] public void ReverseNumber_Negative() 
+        [Test] 
+        public void ReverseNumber_Negative() 
         { 
-            Assert.That(Program.ReverseNumber(-123), Is.EqualTo(-321));
+            Assert.AreEqual(-321, Program.ReverseNumber(-123));
         }
 
-        [Test] public void ReverseNumber_WithZero() 
+        [Test] 
+        public void ReverseNumber_WithZero() 
         { 
-            Assert.That(Program.ReverseNumber(120), Is.EqualTo(21));
+            Assert.AreEqual(21, Program.ReverseNumber(120));
         }
 
-        [Test] public void ReverseNumber_Overflow() 
+        [Test] 
+        public void ReverseNumber_Overflow() 
         { 
-            Assert.That(Program.ReverseNumber(2147483647), Is.EqualTo(0));
+            Assert.AreEqual(0, Program.ReverseNumber(2147483647));
         }
 
         // Римские цифры
-        [Test] public void ToRoman_Simple() 
+        [Test] 
+        public void ToRoman_Simple() 
         { 
-            Assert.That(Program.ToRoman(12), Is.EqualTo("XII"));
+            Assert.AreEqual("XII", Program.ToRoman(12));
         }
 
-        [Test] public void ToRoman_WithFour() 
+        [Test] 
+        public void ToRoman_WithFour() 
         { 
-            Assert.That(Program.ToRoman(14), Is.EqualTo("XIV"));
+            Assert.AreEqual("XIV", Program.ToRoman(14));
         }
 
-        [Test] public void ToRoman_WithNine() 
+        [Test] 
+        public void ToRoman_WithNine() 
         { 
-            Assert.That(Program.ToRoman(19), Is.EqualTo("XIX"));
+            Assert.AreEqual("XIX", Program.ToRoman(19));
         }
 
-        [Test] public void ToRoman_Invalid() 
+        [Test] 
+        public void ToRoman_Invalid() 
         { 
-            Assert.That(Program.ToRoman(0), Is.EqualTo("Invalid number"));
+            Assert.AreEqual("Invalid number", Program.ToRoman(0));
         }
     }
 }
