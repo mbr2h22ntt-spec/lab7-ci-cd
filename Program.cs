@@ -8,7 +8,7 @@ namespace MyProject
         // 1.1. Сортировка массива
         public static void SortArray(int[] arr)
         {
-            for (int i = 0; i < arr.Length - 2; i++)
+            for (int i = 0; i < arr.Length - 1; i++)
             {
                 for (int j = 0; j < arr.Length - 1 - i; j++)
                 {
@@ -373,4 +373,5 @@ namespace MyProject.Tests
         }
     }
 }
+
 
